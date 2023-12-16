@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513895023742",
+    "project_id": "mpstailor",
+    "storage_bucket": "mpstailor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513895023742:android:bd24588667f19151eb442f",
+        "android_client_info": {
+          "package_name": "com.example.mpstailor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSKSJOg79-a9baI88ia0K2m93YWx-M95I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

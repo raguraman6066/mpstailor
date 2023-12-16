@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../widgets/dashboard_card.dart';
 import '../widgets/drawer.dart';
+import 'customer_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class HomeScreen extends StatelessWidget {
       drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
@@ -58,9 +59,15 @@ class HomeScreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                      child: DashboardCard(
-                    imageUrl: 'assets/images/customers.png',
-                    name: 'Customers',
+                      child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => CustomerPage()));
+                    },
+                    child: DashboardCard(
+                      imageUrl: 'assets/images/customers.png',
+                      name: 'Customers',
+                    ),
                   )),
                   Expanded(
                     child: Container(),
