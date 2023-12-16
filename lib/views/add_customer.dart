@@ -1,9 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive/hive.dart';
+import 'package:provider/provider.dart';
 
 import '../models/customer.dart';
+import '../provider/theme_provider.dart';
 
 class AddCustomer extends StatefulWidget {
   final String? customerId;
@@ -44,6 +47,21 @@ class _AddCustomerState extends State<AddCustomer> {
           'Add Customer',
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
+        actions: [
+          Consumer<ThemeProvider>(builder: (context, data, child) {
+            return IconButton(
+              onPressed: () {
+                data.changeTheme();
+              },
+              icon: FaIcon(
+                data.darkTheme
+                    ? FontAwesomeIcons.solidMoon
+                    : FontAwesomeIcons.moon,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            );
+          })
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

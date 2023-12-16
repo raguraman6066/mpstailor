@@ -4,7 +4,9 @@ import 'package:hive/hive.dart';
 
 import 'package:hive_flutter/adapters.dart';
 import 'package:mpstailor/models/customer.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/theme_provider.dart';
 import 'add_customer.dart';
 
 class CustomerPage extends StatelessWidget {
@@ -21,6 +23,21 @@ class CustomerPage extends StatelessWidget {
           'Customers',
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
+        actions: [
+          Consumer<ThemeProvider>(builder: (context, data, child) {
+            return IconButton(
+              onPressed: () {
+                data.changeTheme();
+              },
+              icon: FaIcon(
+                data.darkTheme
+                    ? FontAwesomeIcons.solidMoon
+                    : FontAwesomeIcons.moon,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            );
+          })
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
